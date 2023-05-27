@@ -21,7 +21,14 @@
                 class="card card-body bg-dark shadow-lg pb-5 px-5 text-white"
                 style="max-width: 500px; translate:-50% -50%">
                 @csrf
-
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @foreach ($errors->all() as $error)
+                            <strong>{{ $error }}</strong> <br>
+                        @endforeach
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                @endif
                 <a href="/" class="align-items-center  text-white text-decoration-none">
                     <svg class="" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
                         fill="currentColor" class="bi bi-film" viewBox="0 0 16 16">
