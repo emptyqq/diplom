@@ -81,10 +81,20 @@ Route::group(['middleware' => 'auth'], function () {
         return view('profile');
     })->name('profile');
 
-    Route::get('admin', function ()
+    Route::get('content', function ()
     {
-        return view('admin.videos');
-    })->name('admin');
+        return view('admin.content');
+    })->name('content');
+
+    Route::get('content_add', function ()
+    {
+        return view('admin.content_add');
+    })->name('content_add');
+
+    Route::get('users', function ()
+    {
+        return view('admin.users');
+    })->name('users');
 });
 
 

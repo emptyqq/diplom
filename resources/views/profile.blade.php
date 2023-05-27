@@ -41,7 +41,7 @@
     </ul>
     <div class="tab-content mx-3" id="myTabContent">
         <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">аниме</div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">аниме 2   </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">аниме 2</div>
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">аниме 3</div>
     </div>
 @endsection

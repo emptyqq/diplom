@@ -36,7 +36,7 @@
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0" id="menu">
                         <h6 class="text-secondary">Библиотека</h6>
-                        <li class="nav-item ">
+                        <li class="nav-item">
                             <a href="{{ route('news') }}"
                                 class="nav-link @if (Route::currentRouteName() == 'news') active @endif px-0">
                                 <i class="bi bi-patch-exclamation-fill text-white"></i> <span
@@ -250,7 +250,7 @@
                                 <li><a class="dropdown-item" href="{{ route('profile') }}">Профиль</a></li>
                                 <li><a class="dropdown-item" href="#">Настройки</a></li>
                                 @if (Auth::user()->status == 'ADMIN')
-                                    <li><a class="dropdown-item" href="{{ route('admin') }}">Админ панель</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('content') }}">Админ панель</a></li>
                                 @endif
                                 <li><a class="dropdown-item" href="#">Подписка</a></li>
                                 <li>

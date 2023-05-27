@@ -1,9 +1,8 @@
-
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
@@ -20,7 +19,7 @@ body{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;  
+    background-size: cover;
 }
 
 .overplay {
@@ -35,7 +34,7 @@ body{
 
 
 .center_text {
-    font-stretch:ultra-condensed;
+    font-stretch: ultra-condensed;
     font-size: 4em;
     color: white;
     margin-top: 300px;
@@ -47,7 +46,7 @@ body{
 
 .background_right_menu {
     background-color: #1c202b;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255, 255, 255, 0.65);
 }
 
 .card_body_color {
@@ -59,10 +58,11 @@ body{
 .text_ellipsis {
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; 
+    text-overflow: ellipsis;
     font-size: 13px;
 }
-#nav_mobile{
+
+#nav_mobile {
     display: none;
 }
 
@@ -72,20 +72,45 @@ body{
 
 .nav-tabs .nav-link.active {
     color: var(--bs-nav-tabs-link-active-color);
-    background-color:#171a23;
+    background-color: #171a23;
     border-color: var(--bs-nav-tabs-link-active-border-color);
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background-color: #1c202b;
+    width: 173px;
+    padding-left: 20px !important;
+
+}
+
+.table {
+    --bs-table-hover-color: none;
+    border-color:rgba(255, 255, 255, 0.65);
+    
+}
+
+
 @media screen and (max-width:1200px) {
-    #nav_mobile{
+    #nav_mobile {
         display: block;
     }
-    
+
     #pc_nav {
         display: none;
     }
+
     #main-content {
         display: block !important;
     }
-}
 
+    .nav-pills .nav-link.active,
+    .nav-pills .show>.nav-link {
+        color: var(--bs-nav-pills-link-active-color);
+        /* background-color: #1c202b; */
+        width: fit-content;
+        padding-right: 20px !important;
+        padding-left: 20px !important;
+    }
+}

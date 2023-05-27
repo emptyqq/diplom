@@ -35,87 +35,34 @@
                         <span class="fs-5 mx-1">ТвоёКино</span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0" id="menu">
-                        <h6 class="text-secondary">Библиотека</h6>
-                        <li class="nav-item ">
-                            <a href="{{ route('news') }}"
-                                class="nav-link @if (Route::currentRouteName() == 'news') active @endif px-0">
-                                <i class="bi bi-patch-exclamation-fill text-white"></i> <span
-                                    class="ms-1  text-white">Новинки</span>
+                        <li class="nav-item">
+                            <a href="{{ route('serials') }}"
+                                class="nav-link px-0 align-middle @if (Route::currentRouteName() == 'serials') active @endif">
+                                <i class="bi bi-menu-button text-white"></i> <span class="ms-1 text-white">Контент</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('movies') }}"
-                                class="nav-link @if (Route::currentRouteName() == 'movies') active @endif px-0 ">
-                                <i class="bi bi-camera-reels text-white"></i> <span
-                                    class="ms-1  text-white">Фильмы</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('serials') }}"
-                                class="nav-link px-0 align-middle @if (Route::currentRouteName() == 'serials') active @endif">
-                                <i class="bi bi-tv text-white"></i> <span class="ms-1 text-white">Сериалы</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('concerts') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'concerts') active @endif">
-                                <i class="bi bi-music-note-list text-white"></i> <span
-                                    class="ms-1 text-white">Концерты</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('docfilms') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'docfilms') active @endif align-middle">
-                                <i class="bi bi-file-earmark-post text-white"></i> <span
-                                    class="ms-1 text-white">Докуфильмы</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('docserials') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'docserials') active @endif align-middle">
-                                <i class=" bi bi-file-earmark-post-fill text-white"></i> <span
-                                    class="ms-1 text-white">Докусериал</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('tv') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'tv') active @endif align-middle">
-                                <i class="bi bi-pip text-white"></i> <span class="ms-1  text-white">ТВ Шоу</span>
-                            </a>
-                        </li>
-                        <h6 class="text-secondary">Остальное</h6>
-                        <li class="nav-item">
-                            <a href="{{ route('trophy') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'trophy') active @endif align-middle">
-                                <i class="bi bi-trophy-fill text-white"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white">Награды</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('premium') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'premium') active @endif align-middle">
-                                <i class="bi bi-piggy-bank-fill text-white"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white">Купить премиум</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="dropdown pb-4 ps-4">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                        id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://i.pinimg.com/564x/60/49/41/60494114ea0e37994ff54727975a9a85.jpg"
-                            alt="hugenerd" width="30" height="30" class="rounded-circle">
-                        <span class="mx-1">{{ Auth::user()->login }}</span>
+                            class="nav-link @if (Route::currentRouteName() == 'movies') active @endif px-0 ">
+                            <i class="bi bi-list-task text-white"></i> <span
+                            class="ms-1  text-white">Категории</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('concerts') }}"
+                        class="nav-link px-0 @if (Route::currentRouteName() == 'concerts') active @endif">
+                        <i class="bi bi-card-checklist text-white"></i> <span
+                        class="ms-1 text-white">Жанры</span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Профиль</a></li>
-                        <li><a class="dropdown-item" href="#">Настройки</a></li>
-                        <li><a class="dropdown-item" href="#">Подписка</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a href="{{ route('core.logout') }}" class="dropdown-item">Выйти</a></li>
-                    </ul>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{ route('news') }}"
+                        class="nav-link @if (Route::currentRouteName() == 'news') active @endif px-0">
+                        <i class="bi bi-people text-white"></i> <span
+                            class="ms-1  text-white">Пользователи</span>
+                    </a>
+                </li>
+            </ul>
                 </div>
             </div>
         </nav>
@@ -136,93 +83,37 @@
                     </a>
 
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0" id="menu">
-                        <h6 class="text-secondary">Библиотека</h6>
-                        <li class="nav-item ">
-                            <a href="{{ route('news') }}"
-                                class="nav-link @if (Route::currentRouteName() == 'news') active @endif px-0">
-                                <i class="bi bi-patch-exclamation-fill text-white"></i> <span
-                                    class="ms-1  text-white">Новинки</span>
-                            </a>
+                        <li class="nav-item">
+                            <a href="{{ route('content') }}"
+                            class="nav-link px-0 align-middle @if (Route::currentRouteName() == 'content') active @endif">
+                            <i class="bi bi-menu-button text-white"></i> <span class="ms-1 text-white">Контент</span>
+                        </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('movies') }}"
-                                class="nav-link @if (Route::currentRouteName() == 'movies') active @endif px-0 ">
-                                <i class="bi bi-camera-reels text-white"></i> <span
-                                    class="ms-1  text-white">Фильмы</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('serials') }}"
-                                class="nav-link px-0 align-middle @if (Route::currentRouteName() == 'serials') active @endif">
-                                <i class="bi bi-tv text-white"></i> <span class="ms-1 text-white">Сериалы</span>
+                            class="nav-link @if (Route::currentRouteName() == 'movies') active @endif px-0 ">
+                            <i class="bi bi-list-task text-white"></i> <span
+                            class="ms-1  text-white">Категории</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('concerts') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'concerts') active @endif">
-                                <i class="bi bi-music-note-list text-white"></i> <span
-                                    class="ms-1 text-white">Концерты</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('docfilms') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'docfilms') active @endif align-middle">
-                                <i class="bi bi-file-earmark-post text-white"></i> <span
-                                    class="ms-1 text-white">Докуфильмы</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('docserials') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'docserials') active @endif align-middle">
-                                <i class=" bi bi-file-earmark-post-fill text-white"></i> <span
-                                    class="ms-1 text-white">Докусериал</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('tv') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'tv') active @endif align-middle">
-                                <i class="bi bi-pip text-white"></i> <span class="ms-1  text-white">ТВ Шоу</span>
-                            </a>
-                        </li>
-                        <h6 class="text-secondary">Остальное</h6>
-                        <li class="nav-item">
-                            <a href="{{ route('trophy') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'trophy') active @endif align-middle">
-                                <i class="bi bi-trophy-fill text-white"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white">Награды</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('premium') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'premium') active @endif align-middle">
-                                <i class="bi bi-piggy-bank-fill text-white"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white">Купить премиум</span>
-                            </a>
-                        </li>
+                            class="nav-link px-0 @if (Route::currentRouteName() == 'concerts') active @endif">
+                            <i class="bi bi-card-checklist text-white"></i> <span
+                            class="ms-1 text-white">Жанры</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="{{ route('users') }}"
+                            class="nav-link @if (Route::currentRouteName() == 'users') active @endif px-0">
+                            <i class="bi bi-people text-white"></i> <span
+                                class="ms-1 text-white">Пользователи</span>
+                        </a>
+                    </li>
                     </ul>
                     <hr>
-                    {{-- <div class="dropdown pb-4">
-                        <a href="#"
-                            class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                            id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://i.pinimg.com/564x/60/49/41/60494114ea0e37994ff54727975a9a85.jpg"
-                                alt="hugenerd" width="30" height="30" class="rounded-circle">
-                            <span class="mx-1">{{ Auth::user()->login }}</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                            aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item" href="{{ route('profile') }}">Профиль</a></li>
-                            <li><a class="dropdown-item" href="{{route('admin')}}">Настройки</a></li>
-                            <li><a class="dropdown-item" href="#">Подписка</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="{{ route('core.logout') }}">Выйти</a></li>
-                        </ul>
-                    </div> --}}
                 </div>
             </div>
-            {{-- mx-auto удалил, хз при отдалении хуета или норм... хз хз хз  --}}
             <div class="background_right_menu" style="">
                 <nav class="navbar navbar-expand bg-body-tertiary nav_menu_color" data-bs-theme="dark">
                     <div class="container-fluid">
@@ -250,7 +141,7 @@
                                 <li><a class="dropdown-item" href="{{ route('profile') }}">Профиль</a></li>
                                 <li><a class="dropdown-item" href="#">Настройки</a></li>
                                 @if (Auth::user()->status == 'ADMIN')
-                                    <li><a class="dropdown-item" href="{{ route('admin') }}">Админ панель</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('content') }}">Админ панель</a></li>
                                 @endif
                                 <li><a class="dropdown-item" href="#">Подписка</a></li>
                                 <li>
