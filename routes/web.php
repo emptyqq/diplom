@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\ContentController;
 use App\Http\Controllers\UserCotnroller;
+use App\Models\Content;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +38,11 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', function () {
-        return view('welcome');
+        $contents = Content::all();
+
+        return view('welcome', [
+            'contents' => $contents,
+        ]);
     })->name('home');
 
     Route::get('/news', function () {
@@ -67,13 +73,11 @@ Route::group(['middleware' => 'auth'], function () {
         return view('tv');
     })->name('tv');
 
-    Route::get('trophy', function ()
-    {
+    Route::get('trophy', function () {
         return view('trophy');
     })->name('trophy');
 
-    Route::get('premium', function ()
-    {
+    Route::get('premium', function () {
         return view('premium');
     })->name('premium');
 
@@ -85,20 +89,23 @@ Route::group(['middleware' => 'auth'], function () {
         return view('videos');
     })->name('videos');
 
-    Route::get('content', function ()
-    {
-        return view('admin.content');
+    Route::get('content', function () {
+        $contents = Content::all();
+
+        return view('admin.content', [
+            'contents' => $contents,
+        ]);
     })->name('content');
 
-    Route::get('content_add', function ()
-    {
+    Route::get('content_add', function () {
         return view('admin.content_add');
     })->name('content_add');
 
-    Route::get('users', function ()
-    {
+    Route::get('users', function () {
         return view('admin.users');
     })->name('users');
+
+
 });
 
 
@@ -110,4 +117,6 @@ Route::group(['prefix' => 'core'], function () {
     Route::post("/login", [UserCotnroller::class, 'login'])->name('core.login');
 
     Route::get("/logout", [UserCotnroller::class, 'logout'])->name('core.logout');
+
+    Route::post("/content/create", [ContentController::class, 'Create'])->name('create_content');
 });
