@@ -81,6 +81,10 @@ Route::group(['middleware' => 'auth'], function () {
         return view('profile');
     })->name('profile');
 
+    Route::get('videos', function () {
+        return view('videos');
+    })->name('videos');
+
     Route::get('content', function ()
     {
         return view('admin.content');
