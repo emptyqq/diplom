@@ -101,14 +101,14 @@
                         <h6>Статус</h6>
                         <div class="d-flex">
                             <div class="form-check">
-                                <input value="1" class="form-check-input" type="radio" name="visibility" id="flexRadioDefault2"
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
                                     checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Сделать активным
                                 </label>
                             </div>
                             <div class="form-check ms-2">
-                                <input value="0" class="form-check-input" type="radio" name="visibility" id="flexRadioDefault1">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Скрыть
                                 </label>

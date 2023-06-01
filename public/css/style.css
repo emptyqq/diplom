@@ -74,15 +74,20 @@ body {
     color: var(--bs-nav-tabs-link-active-color);
     background-color: #171a23;
     border-color: var(--bs-nav-tabs-link-active-border-color);
+    width: 100%;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: var(--bs-nav-pills-link-active-color);
     background-color: #1c202b;
-    width: 173px;
+    width: 100%;
     padding-left: 20px !important;
+    
+}
 
+#menu {
+    width: 100%;
 }
 
 .table {

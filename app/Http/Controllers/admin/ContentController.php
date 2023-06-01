@@ -29,6 +29,7 @@ class ContentController extends Controller
         $content->published = $request->published;
         $content->duration = $request->duration;
         $content->trailers = $request->trailers;
+        $content->visibility = $request->visibility;
         // $content->video = $request->video;
 
         $content->save();

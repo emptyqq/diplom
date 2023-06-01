@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\admin\ContentController;
+use App\Http\Controllers\admin\GenreController;
 use App\Http\Controllers\UserCotnroller;
 use App\Models\Content;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -101,11 +103,42 @@ Route::group(['middleware' => 'auth'], function () {
         return view('admin.content_add');
     })->name('content_add');
 
+    Route::get('content_more', function () {
+        return view('admin.content_more');
+    })->name('content_more');
+
     Route::get('users', function () {
         return view('admin.users');
     })->name('users');
 
+    Route::get('categories', function () {
+        return view('admin.categories');
+    })->name('categories');
 
+    Route::get('categories_add', function () {
+        return view('admin.categories_add');
+    })->name('categories_add');
+    
+    Route::get('genre', function () {
+        $genres = Genre::orderBy('id', 'desc')->get();
+
+        return view('admin.genre', [
+            'vse_janri' => $genres,
+        ]);
+    })->name('genre');
+
+    Route::get('genre_add', function () {
+        return view('admin.genre_add');
+    })->name('genre_add');
+
+    Route::get('subscription', function () {
+        return view('subscription');
+    })->name('subscription');
+
+    Route::get('search', function ()
+    {
+        return view('search');
+    })->name('search');
 });
 
 
@@ -119,4 +152,6 @@ Route::group(['prefix' => 'core'], function () {
     Route::get("/logout", [UserCotnroller::class, 'logout'])->name('core.logout');
 
     Route::post("/content/create", [ContentController::class, 'Create'])->name('create_content');
+
+    Route::post("/genre/create", [GenreController::class, 'Create'])->name('create_genre');
 });

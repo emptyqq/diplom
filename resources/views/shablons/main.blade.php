@@ -10,6 +10,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('public/css/style.css') }}">
+    <script src="{{ asset('public/js/playerjs.js') }}" type="text/javascript"></script> {{-- для видоса --}}
 </head>
 
 <body class="background_right_menu">
@@ -92,39 +93,20 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('premium') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'premium') active @endif align-middle">
+                            <a href="{{ route('subscription') }}"
+                                class="nav-link px-0 @if (Route::currentRouteName() == 'subscription') active @endif align-middle">
                                 <i class="bi bi-piggy-bank-fill text-white"></i> <span
                                     class="ms-1 d-none d-sm-inline text-white">Купить премиум</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-                <div class="dropdown pb-4 ps-4">
-                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                        id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://i.pinimg.com/564x/60/49/41/60494114ea0e37994ff54727975a9a85.jpg"
-                            alt="hugenerd" width="30" height="30" class="rounded-circle">
-                        <span class="mx-1">{{ Auth::user()->login }}</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Профиль</a></li>
-                        <li><a class="dropdown-item" href="#">Настройки</a></li>
-                        <li><a class="dropdown-item" href="#">Подписка</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a href="{{ route('core.logout') }}" class="dropdown-item">Выйти</a></li>
-                    </ul>
-                </div>
-            </div>
         </nav>
 
         <div class="" id="main-content" style="display: grid;grid-template-columns: 1fr 8fr; gap: 0rem;">
             <div class="px-sm-auto px-auto nav_menu_color" id="pc_nav"
                 style="position: sticky; height: 100vh; top: 0">
-                <div
-                    class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 text-white min-vh-100">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 text-white min-vh-100">
                     <a href="/"
                         class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                         <svg class="d-none d-sm-inline" xmlns="http://www.w3.org/2000/svg" width="25"
@@ -193,8 +175,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('premium') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'premium') active @endif align-middle">
+                            <a href="{{ route('subscription') }}"
+                                class="nav-link px-0 @if (Route::currentRouteName() == 'subscription') active @endif align-middle">
                                 <i class="bi bi-piggy-bank-fill text-white"></i> <span
                                     class="ms-1 d-none d-sm-inline text-white">Купить премиум</span>
                             </a>
@@ -231,9 +213,9 @@
                                 <div class="input-group">
                                     <input class="form-control border border-end-0" type="search"
                                         placeholder="Поиск" aria-label="Search">
-                                    <button class="btn btn-dark border-start-0 border " type="submit">
-                                        <i class="bi bi-search"></i>
-                                    </button>
+                                    <a href="{{ route('search') }}" class="btn btn-dark border-start-0 border " type="submit">
+                                        <i class="bi bi-search text-white"></i>
+                                    </a>
                                 </div>
                             </form>
                         </div>
@@ -241,8 +223,8 @@
                             <a href="#"
                                 class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://i.pinimg.com/564x/60/49/41/60494114ea0e37994ff54727975a9a85.jpg"
-                                    alt="hugenerd" width="30" height="30" class="rounded-circle">
+                                <img src="{{ Auth::user()->img }}" alt="hugenerd" width="30" height="30"
+                                    class="rounded-circle">
                                 <span class="mx-1">{{ Auth::user()->login }}</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow dropdown-menu-lg-end"
@@ -252,7 +234,7 @@
                                 @if (Auth::user()->status == 'ADMIN')
                                     <li><a class="dropdown-item" href="{{ route('content') }}">Админ панель</a></li>
                                 @endif
-                                <li><a class="dropdown-item" href="#">Подписка</a></li>
+                                <li><a class="dropdown-item" href="{{ route('subscription') }}">Подписка</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

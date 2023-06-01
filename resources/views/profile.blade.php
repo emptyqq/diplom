@@ -8,7 +8,8 @@
     <div class="d-flex">
         <div class="p-3">
             <img title="нажмите, чтобы изменить фотографию" data-bs-toggle="tooltip"  data-bs-placement="right" data-bs-custom-class="bg-dark"
-                src="https://i.pinimg.com/564x/60/49/41/60494114ea0e37994ff54727975a9a85.jpg"
+                src="{{ Auth::user()->img }}"
+                {{-- https://i.pinimg.com/564x/60/49/41/60494114ea0e37994ff54727975a9a85.jpg --}}
                 class="img-thumbnail float-start rounded-circle" width="200" height="200" alt="...">
         </div>
         <div class="row">
