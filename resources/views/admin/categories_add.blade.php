@@ -11,12 +11,20 @@
             <h1 class="">Категории</h1>
         </div>
         <div class="nav_menu_color rounded mt-1 p-2">
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('create_category') }}" enctype="multipart/form-data">
+                @csrf
                 <div class="row mx-auto">
                     <div class="col-lg">
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Название категории</label>
-                            <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                            <input type="text" required name="name" class="form-control" id="exampleFormControlInput1"
+                                placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-lg">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">иконка с бутсрапа</label>
+                            <input type="text" required name="icon" class="form-control" id="exampleFormControlInput1"
                                 placeholder="">
                         </div>
                     </div>

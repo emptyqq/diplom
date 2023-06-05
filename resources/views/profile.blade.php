@@ -4,13 +4,35 @@
     Профиль
 @endsection
 
+@section('scripts')
+    <script>
+        document.getElementById("avatar").addEventListener("change", function() {
+            this.parentElement.submit()
+        })
+    </script>
+@endsection
+
 @section('main')
     <div class="d-flex">
-        <div class="p-3">
-            <img title="нажмите, чтобы изменить фотографию" data-bs-toggle="tooltip" data-bs-placement="right"
-                data-bs-custom-class="bg-dark" src="{{ Auth::user()->img }}" {{-- https://i.pinimg.com/564x/60/49/41/60494114ea0e37994ff54727975a9a85.jpg --}}
-                class="img-thumbnail float-start rounded-circle" width="200" height="200" alt="...">
-        </div>
+        <form action="{{ route('core.user.edit.avatar') }}" method="POST" class="p-3 d-flex align-items-center"
+            enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="avatar" id="avatar" class="d-none">
+            <label for="avatar" class="" title="нажмите, чтобы изменить фотографию" data-bs-toggle="tooltip"
+                data-bs-placement="right" data-bs-custom-class="bg-dark">
+                @if (Auth::user()->img)
+                    <div class="avatar" style="width: 200px; height: 200px; background-image: url({{ asset(Auth::user()->img) }})">
+                    </div>
+                @else
+                    <svg class="" xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor"
+                        class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                    </svg>
+                @endif
+            </label>
+        </form>
         <div class="row">
             <div class="mt-5 ms-3">
                 <h1 class="fw-bold mb-3">{{ Auth::user()->login }}</h1>

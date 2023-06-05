@@ -40,11 +40,12 @@
                 <hr>
                 <h1 class="mb-5">Авторизация</h1>
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Логин или email">
+                    <input type="text" class="form-control" name="email" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Логин или email">
                 </div>
                 <div class="mb-3">
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                        placeholder="Пароль">
                 </div>
                 <button type="submit" class="btn btn-primary">Войти</button>
                 <hr>
@@ -54,12 +55,6 @@
 
         </div>
     </div>
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>

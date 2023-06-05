@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\ContentController;
 use App\Http\Controllers\admin\GenreController;
 use App\Http\Controllers\UserCotnroller;
 use App\Models\Content;
+use App\Models\Content_genre;
 use App\Models\Genre;
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -52,9 +55,15 @@ Route::group(['middleware' => 'auth'], function () {
         return view('news');
     })->name('news');
 
-    Route::get('/movies', function () {
-        return view('movies');
-    })->name('movies');
+
+
+    Route::get('/type/{type}', function (Type $type) {
+        $contents = Content::where('visibility', 1)->where("type", $type->id)->get();
+        return view('movies', [
+            'contents' => $contents,
+            'type' => $type,
+        ]);
+    })->name('type');
 
     Route::get('/serials', function () {
         return view('serials');
@@ -92,6 +101,11 @@ Route::group(['middleware' => 'auth'], function () {
         return view('videos');
     })->name('videos');
 
+
+
+
+
+
     Route::get('content', function () {
         $contents = Content::all();
 
@@ -101,29 +115,57 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('content');
 
     Route::get('content_add', function () {
-        return view('admin.content_add');
+        $types = Type::all();
+        $genres = Genre::orderBy("name")->get();
+
+        return view('admin.content_add', [
+            'types' => $types,
+            'genres' => $genres,
+        ]);
     })->name('content_add');
 
-    Route::get('content_more', function () {
-        return view('admin.content_more');
+    Route::get('content_more/{content}', function (Content $content) {
+        $types = Type::all();
+        $genres = Genre::orderBy("name")->get();
+
+        $content->genres = Content_genre::where("content_id", $content->id)->join("genres", "content_genres.genre_id", "=", "genres.id")->get();
+
+        return view('admin.content_more', [
+            'content' => $content,
+            'types' => $types,
+            'genres' => $genres,
+        ]);
     })->name('content_more');
+
+
+
+
 
     Route::get('users', function () {
         $users = User::all();
 
-        return view('admin.users',[
+        return view('admin.users', [
             'all_users' => $users,
         ]);
     })->name('users');
 
+
+
+
     Route::get('categories', function () {
-        return view('admin.categories');
+        $types = Type::all();
+        return view('admin.categories', [
+            'types' => $types,
+        ]);
     })->name('categories');
 
     Route::get('categories_add', function () {
         return view('admin.categories_add');
     })->name('categories_add');
-    
+
+
+
+
     Route::get('genre', function () {
         $genres = Genre::orderBy('id', 'desc')->get();
 
@@ -136,12 +178,14 @@ Route::group(['middleware' => 'auth'], function () {
         return view('admin.genre_add');
     })->name('genre_add');
 
+
+
+
     Route::get('subscription', function () {
         return view('subscription');
     })->name('subscription');
 
-    Route::get('search', function ()
-    {
+    Route::get('search', function () {
         return view('search');
     })->name('search');
 });
@@ -156,7 +200,20 @@ Route::group(['prefix' => 'core'], function () {
 
     Route::get("/logout", [UserCotnroller::class, 'logout'])->name('core.logout');
 
-    Route::post("/content/create", [ContentController::class, 'Create'])->name('create_content');
+    Route::post("/user/edit/avatar", [UserCotnroller::class, 'editAvatar'])->name('core.user.edit.avatar');
 
-    Route::post("/genre/create", [GenreController::class, 'Create'])->name('create_genre');
+    Route::group(['prefix' => 'admin'], function () {
+
+        Route::post("/content/create", [ContentController::class, 'Create'])->name('create_content');
+        Route::post("/content/edit", [ContentController::class, 'edit'])->name('edit_content');
+        Route::post("/content/remove", [ContentController::class, 'remove'])->name('remove_content');
+
+        Route::post("/genre/create", [GenreController::class, 'Create'])->name('create_genre');
+        Route::post("/genre/edit", [GenreController::class, 'edit'])->name('edit_genre');
+        Route::post("/genre/remove", [GenreController::class, 'remove'])->name('remove_genre');
+
+        Route::post("/categories/create", [CategoriesController::class, 'Create'])->name('create_category');
+        Route::post("/categories/edit", [CategoriesController::class, 'edit'])->name('edit_category');
+        Route::post("/categories/remove", [CategoriesController::class, 'remove'])->name('remove_category');
+    });
 });

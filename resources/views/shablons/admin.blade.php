@@ -35,7 +35,7 @@
                         <span class="fs-5 mx-1">ТвоёКино</span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0" id="menu">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('serials') }}"
                                 class="nav-link px-0 align-middle @if (Route::currentRouteName() == 'serials') active @endif">
                                 <i class="bi bi-menu-button text-white"></i> <span
@@ -63,7 +63,7 @@
                                     class="ms-1  text-white">Пользователи</span>
                             </a>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </nav>
@@ -92,12 +92,12 @@
                         </li> --}}
                         <li class="nav-item">
                             <a class=" nav-link  @if (str_contains(Request::route()->getName(), 'content')) active collapsed @endif  px-0"
-                                data-bs-toggle="collapse" href="#collapseExample2" role="button"
-                                aria-expanded="false" aria-controls="collapseExample2">
+                                data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false"
+                                aria-controls="collapseExample2">
                                 <i class="bi bi-menu-button text-white"></i>
                                 <span class="ms-1 text-white">Контент</span>
                             </a>
-                            <div class="collapse @if (str_contains(Request::route()->getName(), 'content')) show @endif"  id="collapseExample2">
+                            <div class="collapse @if (str_contains(Request::route()->getName(), 'content')) show @endif" id="collapseExample2">
                                 <div class="card card-body nav_menu_color border-0">
                                     <a href="{{ route('content') }}"
                                         class="nav-link @if (Route::currentRouteName() == 'content') active @endif px-0">
@@ -135,7 +135,8 @@
                                 <i class="bi bi-card-checklist text-white"></i>
                                 <span class="ms-1 text-white">Жанры</span>
                             </a>
-                            <div class="collapse @if (str_contains(Request::route()->getName(), 'genre')) show @endif" id="collapseExample1">
+                            <div class="collapse @if (str_contains(Request::route()->getName(), 'genre')) show @endif"
+                                id="collapseExample1">
                                 <div class="card card-body nav_menu_color border-0">
                                     <a href="{{ route('genre') }}"
                                         class="nav-link @if (Route::currentRouteName() == 'genre') active @endif px-0">
@@ -178,8 +179,19 @@
                             <a href="#"
                                 class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ Auth::user()->img }}" alt="hugenerd" width="30" height="30"
-                                    class="rounded-circle">
+                                @if (Auth::user()->img)
+                                    <div class="avatar"
+                                        style="width: 30px; height: 30px; background-image: url({{ asset(Auth::user()->img) }})">
+                                    </div>
+                                @else
+                                    <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="30"
+                                        height="30" fill="currentColor" class="bi bi-person-circle"
+                                        viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                        <path fill-rule="evenodd"
+                                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                    </svg>
+                                @endif
                                 <span class="mx-1">{{ Auth::user()->login }}</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow dropdown-menu-lg-end"
@@ -214,6 +226,7 @@
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
+    @yield('scripts')
 </body>
 
 </html>

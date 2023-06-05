@@ -16,9 +16,24 @@ class GenreController extends Controller
         $genre->name = $request->name;
 
         $genre->save();
-        
-        return redirect()->route('genre');
-        
 
+        return redirect()->route('genre');
+    }
+
+    public function edit(Request $request)
+    {
+        $genre = Genre::find($request->id);
+
+        $genre->name = $request->name;
+
+        $genre->save();
+
+        return redirect()->route('genre');
+    }
+
+    public function remove(Request $request)
+    {
+        Genre::find($request->id)->delete();
+        return redirect()->route('genre');
     }
 }

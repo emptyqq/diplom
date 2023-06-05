@@ -119,3 +119,10 @@ body {
         padding-left: 20px !important;
     }
 }
+
+.avatar {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}

@@ -42,7 +42,6 @@ class UserCotnroller extends Controller
         } else {
             return redirect()->back()->withErrors(['error' => 'пользователь не найден']);
         }
-
     }
 
 
@@ -54,5 +53,15 @@ class UserCotnroller extends Controller
     {
         Auth::logout();
         return redirect()->route('index');
+    }
+
+    public function editAvatar(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        $path = $request->file("avatar")->store("users/" . $user->login . "/", "public");
+        $user->img = "public/storage/{$path}";
+        $user->save();
+
+        return redirect()->back();
     }
 }
