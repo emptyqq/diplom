@@ -69,7 +69,7 @@
             </div>
 
             <div class="nav_menu_color rounded p-3 mt-3">
-                <h1 class="text-center">Остались вопросы? Сейчас решим нахуй</h1>
+                <h1 class="text-center">Остались вопросы?</h1>
                 <div class="mx-auto text-center nav_menu_color p-3">
                     <button class="btn text-white" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -77,7 +77,7 @@
                     </button>
                     <div class="collapse" id="collapseExample">
                         <div class="card card-body nav_menu_color border-0">
-                            Премиум подписка — это доступ к фильмам и сериалам на ТвоёКино.
+                            Премиум подписка — это доступ к фильмам и сериалам без рекламы на ТвоёКино.
                         </div>
                     </div>
                 </div>

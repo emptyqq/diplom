@@ -15,12 +15,17 @@
         </div>
         <div class="nav_menu_color rounded mt-1 p-2">
             <table class="table text-white mx-auto table-hover caption-top">
-                <caption class="text-light">Поиск</caption>
+                <caption class="text-light">
+                    <div class="input-group mb-3 w-25">
+                        <input type="text" class="form-control" placeholder="Поиск контента" aria-label="Username"
+                            aria-describedby="basic-addon1">
+                    </div>
+                </caption>
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Название</th>
-                        <th scope="col"></th>
+                        <th scope="col">Действия</th>
 
                     </tr>
                 </thead>

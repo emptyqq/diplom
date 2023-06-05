@@ -5,13 +5,15 @@
 @endsection
 
 @section('main')
-    <h3>Назвн фильм</h3>
+    <div class="d-flex">
+        <h3 class="me-2 text-white">Подземелья и драконы: Честь среди воров <small class="background_right_menu">Dungeons & Dragons: Honor Among Thieves</small></h3>
+    </div>
     <div class="" id="player"></div>
     <script>
         var player = new Playerjs({
             id: "player",
-            file: "{{ asset('public/storage/video/video.mp4') }}",
-            title: "Напзавние фильма",
+            file: "{{ asset('public/storage/video/podzfilm.mp4') }}",
+            title: "",
         });
     </script>
     <hr>
@@ -34,14 +36,14 @@
             </span>
             <hr>
             <h5>Информация</h5>
-            <div class="p-2">Рейтинг</div>
-            <div class="p-2">Год выхода	</div>
-            <div class="p-2">Страна</div>
-            <div class="p-2">Жанр</div>
-            <div class="p-2">Режиссёр</div>
-            <div class="p-2">В ролях</div>
-            <div class="p-2">Длительность</div>
-            <div class="p-2">Возраст</div>
+            <div class="p-2 border">Рейтинг&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.3 / 10</div>
+            <div class="p-2 border">Год выхода&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2023</div>
+            <div class="p-2 border">Страна&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; США, Великобритания, Австралия, Канада, Ирландия, Исландия</div>
+            <div class="p-2 border">Жанр&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Комедия, Боевик, Фэнтези, Эксклюзив</div>
+            <div class="p-2 border">Режиссёр&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Джон Фрэнсис Дейли, Джонатан М. Голдштейн</div>
+            <div class="p-2 border">В ролях &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Крис Пайн, Мишель Родригес, Реге-Жан Пейдж, Джастис Смит, София Лиллис, Хью Грант, Хлоя Коулмэн, Дэйзи Хэд, Кайл Хиксон</div>
+            <div class="p-2 border">Длительность&nbsp;&nbsp;&nbsp;&nbsp; 02:15:57 / (135 мин)</div>
+            <div class="p-2 border">Возраст&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 12+</div>
         </div>
     </div>
 @endsection

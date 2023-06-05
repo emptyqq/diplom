@@ -15,7 +15,13 @@
         </div>
         <div class="nav_menu_color rounded mt-1 p-2">
             <table class="table text-white mx-auto table-hover caption-top">
-                <caption class="text-light">Поиск</caption>
+                <caption class="text-light">
+                    <div class="input-group mb-3 w-25">
+                        <input type="text" class="form-control" placeholder="Поиск контента" aria-label="Username"
+                            aria-describedby="basic-addon1">
+                    </div>
+                </caption>
+
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -32,14 +38,39 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch demo modal
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Удалит контент</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-dark">
+                                    Вы хотите удалить контент:Подземелья и драконы: Честь среди воров '#9'
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                                    <button type="button" class="btn btn-primary">Удалить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @foreach ($contents as $contents_one_item)
                         <tr>
                             <th scope="row">{{ $contents_one_item->id }}</th>
                             <td>
                                 <div class="ms-3">{{ $contents_one_item->name }}</div>
                             </td>
-                            <td>{{$contents_one_item->type}}</td>
-                            <td>{{$contents_one_item->updated_at}}</td>
+                            <td>{{ $contents_one_item->type }}</td>
+                            <td>{{ $contents_one_item->updated_at }}</td>
                             <td>скрыто</td>
                             <td>
                                 <div class="dropdown">

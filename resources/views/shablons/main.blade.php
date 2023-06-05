@@ -89,14 +89,14 @@
                             <a href="{{ route('trophy') }}"
                                 class="nav-link px-0 @if (Route::currentRouteName() == 'trophy') active @endif align-middle">
                                 <i class="bi bi-trophy-fill text-white"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white">Награды</span>
+                                    class="ms-1 d-sm-inline text-white">Награды</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('subscription') }}"
                                 class="nav-link px-0 @if (Route::currentRouteName() == 'subscription') active @endif align-middle">
                                 <i class="bi bi-piggy-bank-fill text-white"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white">Купить премиум</span>
+                                    class="ms-1 d-sm-inline text-white">Купить премиум</span>
                             </a>
                         </li>
                     </ul>
@@ -171,14 +171,14 @@
                             <a href="{{ route('trophy') }}"
                                 class="nav-link px-0 @if (Route::currentRouteName() == 'trophy') active @endif align-middle">
                                 <i class="bi bi-trophy-fill text-white"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white">Награды</span>
+                                    class="ms-1 d-sm-inline text-white">Награды</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('subscription') }}"
                                 class="nav-link px-0 @if (Route::currentRouteName() == 'subscription') active @endif align-middle">
                                 <i class="bi bi-piggy-bank-fill text-white"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white">Купить премиум</span>
+                                    class="ms-1 d-sm-inline text-white">Купить премиум</span>
                             </a>
                         </li>
                     </ul>

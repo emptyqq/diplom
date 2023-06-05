@@ -5,7 +5,7 @@ use App\Http\Controllers\admin\GenreController;
 use App\Http\Controllers\UserCotnroller;
 use App\Models\Content;
 use App\Models\Genre;
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -109,7 +109,7 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('content_more');
 
     Route::get('users', function () {
-        $users = Users::all();
+        $users = User::all();
 
         return view('admin.users',[
             'all_users' => $users,
