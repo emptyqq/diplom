@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/type/{type}', function (Type $type) {
         $contents = Content::where('visibility', 1)->where("type", $type->id)->get();
+        
         return view('movies', [
             'contents' => $contents,
             'type' => $type,
