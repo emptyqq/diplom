@@ -51,11 +51,17 @@ class ContentController extends Controller
 
         $content = Content::find($request->id);
 
+// dd($request);
+
         if ($request->hasFile("img")) {
             $path = $request->file("img")->store("img/contents", "public");
             $content->img = "public/storage/" . $path;
         }
 
+        if ($request->hasFile("video")) {
+            $path = $request->file("video")->store("video/contents", "public");
+            $content->video = "public/storage/" . $path;
+        }
 
         if ($request->has('type') && $request->input('type')) $content->type = $request->type;
         if ($request->has('name') && $request->input('name')) $content->name = $request->name;

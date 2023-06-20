@@ -16,7 +16,8 @@
                     <div class="card card_body_color rounded-3">
                         <img src="{{ asset($contents_one_item->img) }}" class=" card-img-top" alt="...">
                         <div class="card-body card_body_color text-white">
-                            <a class="text-decoration-none text-white" href="{{ route('videos') }}">
+                            <a class="text-decoration-none text-white"
+                                href="{{ route('videos', ['content' => $contents_one_item->id]) }}">
                                 <p class="card-title text-center text_ellipsis">{{ $contents_one_item->name }}</p>
                             </a>
                             <p class="card-text text-center text_ellipsis text-secondary">{{ $contents_one_item->name_eng }}

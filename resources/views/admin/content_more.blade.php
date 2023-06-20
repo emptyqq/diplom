@@ -118,7 +118,8 @@
                                 <select class="form-select" name="type" aria-label="Default select example">
                                     <option value="" selected></option>
                                     @foreach ($types as $type)
-                                        <option @if($type->id == $content->type) selected @endif value="{{ $type->id }}">{{ $type->name }}</option>
+                                        <option @if ($type->id == $content->type) selected @endif
+                                            value="{{ $type->id }}">{{ $type->name }}</option>
                                     @endforeach
                                 </select>
                                 <button type="button" class="btn btn-danger">Добавить</button>
@@ -145,6 +146,12 @@
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Описание</label>
                             <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3">{{ $content->description }}</textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="video" class="form-label">Добавить видео</label>
+                            <input name="video" class="form-control" type="file" id="video">
                         </div>
                     </div>
                     <div class="col-lg-2">
@@ -174,16 +181,15 @@
                         <div class="d-flex">
                             <div class="form-check">
                                 <input @if ($content->visibility) checked @endif value="1"
-                                    class="form-check-input" type="radio" name="visibility"
-                                    id="flexRadioDefault2" checked>
+                                    class="form-check-input" type="radio" name="visibility" id="flexRadioDefault2"
+                                    checked>
                                 <label class="form-check-label" for="flexRadioDefault2">
                                     Сделать активным
                                 </label>
                             </div>
                             <div class="form-check ms-2">
                                 <input @if (!$content->visibility) checked @endif value="0"
-                                    class="form-check-input" type="radio" name="visibility"
-                                    id="flexRadioDefault1">
+                                    class="form-check-input" type="radio" name="visibility" id="flexRadioDefault1">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Скрыть
                                 </label>

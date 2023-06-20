@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/type/{type}', function (Type $type) {
         $contents = Content::where('visibility', 1)->where("type", $type->id)->get();
-        
+
         return view('movies', [
             'contents' => $contents,
             'type' => $type,
@@ -98,8 +98,10 @@ Route::group(['middleware' => 'auth'], function () {
         return view('profile');
     })->name('profile');
 
-    Route::get('videos', function () {
-        return view('videos');
+    Route::get('videos/{content}', function (Content $content) {
+        return view('videos', [
+            'content' => $content
+        ]);
     })->name('videos');
 
 
@@ -186,8 +188,12 @@ Route::group(['middleware' => 'auth'], function () {
         return view('subscription');
     })->name('subscription');
 
-    Route::get('search', function () {
-        return view('search');
+    Route::get('search', function (Request $request) {
+        $contents = Content::where("name", "LIKE", "%{$request->name}%")->where("visibility", 1)->get();
+        // dd($contents);
+        return view('search', [
+            'contents' => $contents,
+        ]);
     })->name('search');
 });
 

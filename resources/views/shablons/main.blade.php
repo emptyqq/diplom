@@ -234,14 +234,14 @@
                 <nav class="navbar navbar-expand bg-body-tertiary nav_menu_color" data-bs-theme="dark">
                     <div class="container-fluid">
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <form class="d-flex" role="search">
+                            <form action="{{ route('search') }}" class="d-flex" role="search">
                                 <div class="input-group">
-                                    <input class="form-control border border-end-0" type="search" placeholder="Поиск"
-                                        aria-label="Search">
-                                    <a href="{{ route('search') }}" class="btn btn-dark border-start-0 border "
+                                    <input required name="name" class="form-control border border-end-0"
+                                        type="search" placeholder="Поиск" aria-label="Search">
+                                    <button href="{{ route('search') }}" class="btn btn-dark border-start-0 border "
                                         type="submit">
                                         <i class="bi bi-search text-white"></i>
-                                    </a>
+                                    </button>
                                 </div>
                             </form>
                         </div>
