@@ -138,10 +138,10 @@ body {
     scale: .9;
 }
 
-.btn-like:is(.active) .bi-star {
+.btn-like:is(.active) .not-fill {
     display: none;
 }
 
-.btn-like:not(.active) .bi-star-fill {
+.btn-like:not(.active) .fill {
     display: none;
 }

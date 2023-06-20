@@ -97,9 +97,16 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('profile', function () {
         $favorites = json_decode(Cookie::get("favorites", '[]'));
+        $plus = json_decode(Cookie::get("plus", '[]'));
+        $minus = json_decode(Cookie::get("minus", '[]'));
         $contents = Content::where("visibility", 1)->whereIn("id", $favorites)->get();
+        $pluses = Content::where("visibility", 1)->whereIn("id", $plus)->get();
+        $minuses = Content::where("visibility", 1)->whereIn("id", $minus)->get();
+
         return view('profile', [
             'contents' => $contents,
+            'pluses' => $pluses,
+            'minuses' => $minuses,
         ]);
     })->name('profile');
 
@@ -217,6 +224,8 @@ Route::group(['prefix' => 'core'], function () {
     Route::post("/user/edit/avatar", [UserCotnroller::class, 'editAvatar'])->name('core.user.edit.avatar');
 
     Route::post('/content/{content}/favorite', [UserCotnroller::class, 'favorite'])->name('content.favorite');
+    Route::post('/content/{content}/plus', [UserCotnroller::class, 'plus'])->name('content.plus');
+    Route::post('/content/{content}/minus', [UserCotnroller::class, 'minus'])->name('content.minus');
 
     Route::group(['prefix' => 'admin'], function () {
 

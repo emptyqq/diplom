@@ -77,4 +77,36 @@ class UserCotnroller extends Controller
         }
         return redirect()->back()->withCookie(cookie()->forever('favorites', json_encode($favorites)));
     }
+
+    function plus(Content $content)
+    {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors([
+                'error' => 'Вы должны быть атворизованы чтобы добавить в закладки!'
+            ]);
+        }
+        $plus = json_decode(Cookie::get("plus", '[]'));
+        if (in_array($content->id, $plus)) {
+            array_splice($plus, array_search($content->id, $plus), 1);
+        } else {
+            array_push($plus, $content->id);
+        }
+        return redirect()->back()->withCookie(cookie()->forever('plus', json_encode($plus)));
+    }
+
+    function minus(Content $content)
+    {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors([
+                'error' => 'Вы должны быть атворизованы чтобы добавить в закладки!'
+            ]);
+        }
+        $minus = json_decode(Cookie::get("minus", '[]'));
+        if (in_array($content->id, $minus)) {
+            array_splice($minus, array_search($content->id, $minus), 1);
+        } else {
+            array_push($minus, $content->id);
+        }
+        return redirect()->back()->withCookie(cookie()->forever('minus', json_encode($minus)));
+    }
 }

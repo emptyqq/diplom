@@ -10,11 +10,26 @@
                 class="background_right_menu ms-3">{{ $content->name_eng }}</small></h3>
         <form action="{{ route('content.favorite', ['content' => $content->id]) }}" method="POST">
             @csrf
-            <button class="btn-like text-secondary d-flex align-items-center ms-5 @if (Cookie::has('favorites') && in_array($content->id, json_decode(Cookie::get('favorites')))) 
-                active
-            @endif">
-                <i class="bi bi-star"></i>
+            <button
+                class="btn-like text-secondary d-flex align-items-center ms-5 @if (Cookie::has('favorites') && in_array($content->id, json_decode(Cookie::get('favorites')))) active @endif">
+                <i class="bi bi-star not-fill"></i>
                 <i class="bi bi-star-fill"></i>
+            </button>
+        </form>
+        <form action="{{ route('content.plus', ['content' => $content->id]) }}" method="POST">
+            @csrf
+            <button
+                class="btn-like text-secondary d-flex align-items-center ms-2 @if (Cookie::has('plus') && in_array($content->id, json_decode(Cookie::get('plus')))) active @endif">
+                <i class="bi bi-file-minus not-fill"></i>
+                <i class="bi bi-file-minus-fill fill"></i>
+            </button>
+        </form>
+        <form action="{{ route('content.minus', ['content' => $content->id]) }}" method="POST">
+            @csrf
+            <button
+                class="btn-like text-secondary d-flex align-items-center ms-2 @if (Cookie::has('minus') && in_array($content->id, json_decode(Cookie::get('minus')))) active @endif">
+                <i class="bi bi-file-earmark-slides not-fill"></i>
+                <i class="bi bi-file-earmark-slides-fill fill"></i>
             </button>
         </form>
     </div>
