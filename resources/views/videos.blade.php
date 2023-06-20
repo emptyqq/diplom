@@ -5,9 +5,18 @@
 @endsection
 
 @section('main')
-    <div class="d-flex">
+    <div class="d-flex align-items-center">
         <h3 class="me-2 text-white">{{ $content->name }} <small
                 class="background_right_menu ms-3">{{ $content->name_eng }}</small></h3>
+        <form action="{{ route('content.favorite', ['content' => $content->id]) }}" method="POST">
+            @csrf
+            <button class="btn-like text-secondary d-flex align-items-center ms-5 @if (Cookie::has('favorites') && in_array($content->id, json_decode(Cookie::get('favorites')))) 
+                active
+            @endif">
+                <i class="bi bi-star"></i>
+                <i class="bi bi-star-fill"></i>
+            </button>
+        </form>
     </div>
     <div class="" id="player"></div>
     <script>
@@ -20,8 +29,7 @@
     <hr>
     <div class="d-flex row mt-3">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 m-b">
-            <img src="{{ asset($content->img) }}" alt=""
-                class="img-thumbnail background_right_menu border-0">
+            <img src="{{ asset($content->img) }}" alt="" class="img-thumbnail background_right_menu border-0">
         </div>
         <div class="col">
             <h5>Сюжет</h5>
@@ -53,7 +61,11 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-lg-3">Жанр</div>
-                        <div class="col-lg-9">{{ $content->genre }}</div>
+                        <div class="col-lg-9">
+                            @foreach ($genres as $genre)
+                                {{ $genre->name }},
+                            @endforeach
+                        </div>
                     </div>
                 </li>
                 <li class="list-group-item">

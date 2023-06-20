@@ -10,6 +10,7 @@ use App\Models\Genre;
 use App\Models\Type;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -95,12 +96,18 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('premium');
 
     Route::get('profile', function () {
-        return view('profile');
+        $favorites = json_decode(Cookie::get("favorites", '[]'));
+        $contents = Content::where("visibility", 1)->whereIn("id", $favorites)->get();
+        return view('profile', [
+            'contents' => $contents,
+        ]);
     })->name('profile');
 
     Route::get('videos/{content}', function (Content $content) {
+        $genres = Content_genre::where("content_id", $content->id)->join("genres", "content_genres.genre_id", "=", "genres.id")->get();
         return view('videos', [
-            'content' => $content
+            'content' => $content,
+            'genres' => $genres,
         ]);
     })->name('videos');
 
@@ -208,6 +215,8 @@ Route::group(['prefix' => 'core'], function () {
     Route::get("/logout", [UserCotnroller::class, 'logout'])->name('core.logout');
 
     Route::post("/user/edit/avatar", [UserCotnroller::class, 'editAvatar'])->name('core.user.edit.avatar');
+
+    Route::post('/content/{content}/favorite', [UserCotnroller::class, 'favorite'])->name('content.favorite');
 
     Route::group(['prefix' => 'admin'], function () {
 

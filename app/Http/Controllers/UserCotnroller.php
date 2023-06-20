@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Content;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 
 class UserCotnroller extends Controller
 {
@@ -44,11 +46,6 @@ class UserCotnroller extends Controller
         }
     }
 
-
-    // else {
-    //     return redirect()->back()->withErrors(['eroor' => 'пользвоатель не найден!']):
-    // }
-
     public function logout()
     {
         Auth::logout();
@@ -63,5 +60,21 @@ class UserCotnroller extends Controller
         $user->save();
 
         return redirect()->back();
+    }
+
+    function favorite(Content $content)
+    {
+        if (!Auth::check()) {
+            return redirect()->back()->withErrors([
+                'error' => 'Вы должны быть атворизованы чтобы добавить в закладки!'
+            ]);
+        }
+        $favorites = json_decode(Cookie::get("favorites", '[]'));
+        if (in_array($content->id, $favorites)) {
+            array_splice($favorites, array_search($content->id, $favorites), 1);
+        } else {
+            array_push($favorites, $content->id);
+        }
+        return redirect()->back()->withCookie(cookie()->forever('favorites', json_encode($favorites)));
     }
 }
