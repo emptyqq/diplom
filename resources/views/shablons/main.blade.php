@@ -263,10 +263,10 @@
                             </form>
                         </div>
                         @if (Auth::user()->follow)
-                            <div class="me-1 ms-2">Подписка до
+                            <div class="ms-3">Подписка до
                                 {{ \Carbon\Carbon::create(Auth::user()->follow_date)->format('d.m.y') }}</div>
                         @endif
-                        <div class="dropdown mx-3 pe-2">
+                        <div class="dropdown dropdown-center mx-3 pe-2">
                             <a href="#"
                                 class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
