@@ -38,7 +38,13 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">250 рублей<small class="text-muted fw-light"></small>
                             </h1>
-                            <button type="button" class="w-100 btn btn-lg btn-danger mt-3">Купить</button>
+                            <form action="{{ route('core.payment.create') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="amount" value="250">
+                                <input type="hidden" name="months" value="1">
+                                <button type="submit" class="w-100 btn btn-lg btn-danger mt-3">Купить</button>
+
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -50,7 +56,13 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">700 рублей<small class="text-muted fw-light"></small>
                             </h1>
-                            <button type="button" class="w-100 btn btn-lg btn-danger mt-3">Купить</button>
+                            <form action="{{ route('core.payment.create') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="amount" value="700">
+                                <input type="hidden" name="months" value="3">
+                                <button type="submit" class="w-100 btn btn-lg btn-danger mt-3">Купить</button>
+
+                            </form>
                         </div>
                     </div>
                 </div>
