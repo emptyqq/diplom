@@ -44,7 +44,24 @@
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0" id="menu">
                         <h6 class="text-secondary">Библиотека</h6>
-                        {{-- <li class="nav-item">
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0" id="menu">
+                            <li class="nav-item ">
+                                <a href="{{ route('news') }}"
+                                    class="nav-link @if (Route::currentRouteName() == 'news') active @endif px-0">
+                                    <i class="bi bi-patch-exclamation-fill text-white"></i> <span
+                                        class="ms-1  text-white">Новинки</span>
+                                </a>
+                            </li>
+                            @foreach ($navList as $nav)
+                                <li class="nav-item">
+                                    <a href="{{ route('type', ['type' => $nav->id]) }}"
+                                        class="nav-link @if (isset($type) && $nav->id == $type->id) active @endif px-0">
+                                        <i class="bi {{ $nav->icon }} text-white"></i>
+                                        <span class="ms-1  text-white">{{ $nav->name }}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+                            {{-- <li class="nav-item">
                             <a href="{{ route('news') }}"
                                 class="nav-link @if (Route::currentRouteName() == 'news') active @endif px-0">
                                 <i class="bi bi-patch-exclamation-fill text-white"></i> <span
@@ -113,7 +130,7 @@
                                     class="ms-1 d-sm-inline text-white">Купить премиум</span>
                             </a>
                         </li> --}}
-                    </ul>
+                        </ul>
                 </div>
         </nav>
 
@@ -246,10 +263,10 @@
                             </form>
                         </div>
                         @if (Auth::user()->follow)
-                            <div class="me-3">Подписка до
+                            <div class="me-1 ms-2">Подписка до
                                 {{ \Carbon\Carbon::create(Auth::user()->follow_date)->format('d.m.y') }}</div>
                         @endif
-                        <div class="dropdown mx-3">
+                        <div class="dropdown mx-3 pe-2">
                             <a href="#"
                                 class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                                 id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -272,7 +289,7 @@
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow dropdown-menu-lg-end"
                                 aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" href="{{ route('profile') }}">Профиль</a></li>
-                                <li><a class="dropdown-item" href="#">Настройки</a></li>
+                                <li><a class="dropdown-item disabled" href="#">Настройки</a></li>
                                 @if (Auth::user()->status == 'ADMIN')
                                     <li><a class="dropdown-item" href="{{ route('content') }}">Админ панель</a></li>
                                 @endif

@@ -35,61 +35,6 @@
                         <span class="fs-5 mx-1">ТвоёКино</span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0" id="menu">
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('serials') }}"
-                                class="nav-link px-0 align-middle @if (Route::currentRouteName() == 'serials') active @endif">
-                                <i class="bi bi-menu-button text-white"></i> <span
-                                    class="ms-1 text-white">Контент</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('movies') }}"
-                                class="nav-link @if (Route::currentRouteName() == 'movies') active @endif px-0 ">
-                                <i class="bi bi-list-task text-white"></i> <span
-                                    class="ms-1  text-white">Категории</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('concerts') }}"
-                                class="nav-link px-0 @if (Route::currentRouteName() == 'concerts') active @endif">
-                                <i class="bi bi-card-checklist text-white"></i> <span
-                                    class="ms-1 text-white">Жанры</span>
-                            </a>
-                        </li>
-                        <li class="nav-item ">
-                            <a href="{{ route('news') }}"
-                                class="nav-link @if (Route::currentRouteName() == 'news') active @endif px-0">
-                                <i class="bi bi-people text-white"></i> <span
-                                    class="ms-1  text-white">Пользователи</span>
-                            </a>
-                        </li>
-                    </ul> --}}
-                </div>
-            </div>
-        </nav>
-
-        <div class="" id="main-content" style="display: grid;grid-template-columns: 1fr 8fr; gap: 0rem;">
-            <div class="px-sm-auto px-auto nav_menu_color" id="pc_nav"
-                style="position: sticky; height: 100vh; top: 0">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 text-white min-vh-100">
-                    <a href="/"
-                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <svg class="d-none d-sm-inline" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
-                            fill="currentColor" class="bi bi-film" viewBox="0 0 16 16">
-                            <path
-                                d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z" />
-                        </svg>
-                        <span class="fs-5 mx-1">ТвоёКино</span>
-                    </a>
-
-                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0" id="menu">
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('content') }}"
-                                class="nav-link px-0 align-middle @if (Route::currentRouteName() == 'content') active @endif">
-                                <i class="bi bi-menu-button text-white"></i> <span
-                                    class="ms-1 text-white">Контент</span>
-                            </a>
-                        </li> --}}
                         <li class="nav-item">
                             <a class=" nav-link  @if (str_contains(Request::route()->getName(), 'content')) active collapsed @endif  px-0"
                                 data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false"
@@ -111,12 +56,109 @@
                         </li>
                         <li class="nav-item">
                             <a class=" nav-link  @if (str_contains(Request::route()->getName(), 'categories')) active collapsed @endif  px-0"
+                                data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                                aria-controls="collapseExample">
+                                <i class="bi bi-list-task text-white"></i>
+                                <span class="ms-1 text-white">Категории</span>
+                            </a>
+                            <div class="collapse @if (str_contains(Request::route()->getName(), 'categories')) show @endif" id="collapseExample">
+                                <div class="card card-body nav_menu_color border-0">
+                                    <a href="{{ route('categories') }}"
+                                        class="nav-link @if (Route::currentRouteName() == 'categories') active @endif px-0">
+                                        <span class="ms-1 text-white">Посмотреть категории</span>
+                                    </a>
+                                    <a href="{{ route('categories_add') }}"
+                                        class="nav-link border-0 @if (Route::currentRouteName() == 'categories_add') active @endif px-0">
+                                        <span class="ms-1 text-white">Добавить категорию</span>
+                                    </a>
+                                </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link  @if (str_contains(Request::route()->getName(), 'genre')) active collapsed @endif  px-0"
+                                data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false"
+                                aria-controls="collapseExample1">
+                                <i class="bi bi-card-checklist text-white"></i>
+                                <span class="ms-1 text-white">Жанры</span>
+                            </a>
+                            <div class="collapse @if (str_contains(Request::route()->getName(), 'genre')) show @endif" id="collapseExample1">
+                                <div class="card card-body nav_menu_color border-0">
+                                    <a href="{{ route('genre') }}"
+                                        class="nav-link @if (Route::currentRouteName() == 'genre') active @endif px-0">
+                                        <span class="ms-1 text-white">Посмотреть жанры</span>
+                                    </a>
+                                    <a href="{{ route('genre_add') }}"
+                                        class="nav-link border-0 @if (Route::currentRouteName() == 'genre_add') active @endif px-0">
+                                        <span class="ms-1 text-white">Добавить жанр</span>
+                                    </a>
+                                </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('users') }}"
+                                class="nav-link @if (Route::currentRouteName() == 'users') active @endif px-0">
+                                <i class="bi bi-people text-white"></i> <span
+                                    class="ms-1 text-white">Пользователи</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="" id="main-content" style="display: grid;grid-template-columns: 1fr 8fr; gap: 0rem;">
+            <div class="px-sm-auto px-auto nav_menu_color" id="pc_nav"
+                style="position: sticky; height: 100vh; top: 0">
+                <div
+                    class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-3 text-white min-vh-100">
+                    <a href="/"
+                        class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <svg class="d-none d-sm-inline" xmlns="http://www.w3.org/2000/svg" width="25"
+                            height="25" fill="currentColor" class="bi bi-film" viewBox="0 0 16 16">
+                            <path
+                                d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z" />
+                        </svg>
+                        <span class="fs-5 mx-1">ТвоёКино</span>
+
+                    </a>
+
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0" id="menu">
+                        {{-- <li class="nav-item">
+                            <a href="{{ route('content') }}"
+                                class="nav-link px-0 align-middle @if (Route::currentRouteName() == 'content') active @endif">
+                                <i class="bi bi-menu-button text-white"></i> <span
+                                    class="ms-1 text-white">Контент</span>
+                            </a>
+                        </li> --}}
+                        <li class="nav-item">
+                            <a class=" nav-link  @if (str_contains(Request::route()->getName(), 'content')) active collapsed @endif  px-0"
+                                data-bs-toggle="collapse" href="#collapseExample2" role="button"
+                                aria-expanded="false" aria-controls="collapseExample2">
+                                <i class="bi bi-menu-button text-white"></i>
+                                <span class="ms-1 text-white">Контент</span>
+                            </a>
+                            <div class="collapse @if (str_contains(Request::route()->getName(), 'content')) show @endif"
+                                id="collapseExample2">
+                                <div class="card card-body nav_menu_color border-0">
+                                    <a href="{{ route('content') }}"
+                                        class="nav-link @if (Route::currentRouteName() == 'content') active @endif px-0">
+                                        <span class="ms-1 text-white">Посмотреть контент</span>
+                                    </a>
+                                    <a href="{{ route('content_add') }}"
+                                        class="nav-link border-0 @if (Route::currentRouteName() == 'content_add') active @endif px-0">
+                                        <span class="ms-1 text-white">Добавить контент</span>
+                                    </a>
+                                </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class=" nav-link  @if (str_contains(Request::route()->getName(), 'categories')) active collapsed @endif  px-0"
                                 data-bs-toggle="collapse" href="#collapseExample" role="button"
                                 aria-expanded="false" aria-controls="collapseExample">
                                 <i class="bi bi-list-task text-white"></i>
                                 <span class="ms-1 text-white">Категории</span>
                             </a>
-                            <div class="collapse @if (str_contains(Request::route()->getName(), 'categories')) show @endif" id="collapseExample">
+                            <div class="collapse @if (str_contains(Request::route()->getName(), 'categories')) show @endif"
+                                id="collapseExample">
                                 <div class="card card-body nav_menu_color border-0">
                                     <a href="{{ route('categories') }}"
                                         class="nav-link @if (Route::currentRouteName() == 'categories') active @endif px-0">
@@ -197,7 +239,7 @@
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow dropdown-menu-lg-end"
                                 aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" href="{{ route('profile') }}">Профиль</a></li>
-                                <li><a class="dropdown-item" href="#">Настройки</a></li>
+                                <li><a class="dropdown-item disabled" href="#">Настройки</a></li>
                                 @if (Auth::user()->status == 'ADMIN')
                                     <li><a class="dropdown-item" href="{{ route('content') }}">Админ панель</a></li>
                                 @endif

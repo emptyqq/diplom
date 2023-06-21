@@ -11,9 +11,10 @@
         <form action="{{ route('content.favorite', ['content' => $content->id]) }}" method="POST">
             @csrf
             <button
-                class="btn-like text-secondary d-flex align-items-center ms-5 @if (Cookie::has('favorites') && in_array($content->id, json_decode(Cookie::get('favorites')))) active @endif">
-                <i class="bi bi-star not-fill"></i>
-                <i class="bi bi-star-fill"></i>
+                class="btn-like text-secondary d-flex align-items-center @if (Cookie::has('favorites') && in_array($content->id, json_decode(Cookie::get('favorites')))) active @endif">
+                <i class="bi bi-file-plus not-fill"></i>
+                <i class="bi bi-file-plus-fill fill"></i>
+
             </button>
         </form>
         <form action="{{ route('content.plus', ['content' => $content->id]) }}" method="POST">

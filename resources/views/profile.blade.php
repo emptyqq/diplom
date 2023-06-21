@@ -37,13 +37,23 @@
         <div class="row">
             <div class="mt-5 ms-3">
                 <h1 class="fw-bold mb-3">{{ Auth::user()->login }}</h1>
-                <div class="d-flex">
-                    <p class="text-secondary me-2">Email</p>
-                    <p>{{ Auth::user()->email }}</p>
+                <div class="d-flex row">
+                    <div class="col-sm-2">
+                        <p class="text-secondary me-2">Email</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p>{{ Auth::user()->email }}</p>
+                    </div>
                 </div>
-                <div class="d-flex">
-                    <p class="text-secondary me-2">Регистрация</p>
-                    <p>{{ Auth::user()->created_at }}</p>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="text-secondary me-2">Регистрация</p>
+
+                    </div>
+                    <div class="col-sm-8">
+                        <p>{{ Auth::user()->created_at }}</p>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,7 +73,6 @@
         </li>
     </ul>
     <div class="tab-content mx-3" id="myTabContent">
-
         <div class="tab-pane mt-3 active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="row gy-4">
                 @forelse ($contents as $content)

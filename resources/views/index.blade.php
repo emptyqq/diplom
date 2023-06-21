@@ -16,7 +16,7 @@
         <div class="overplay" style="    background-image:url({{ asset('public/storage/img/overlay.png') }});"></div>
     </div>
     <div class="row justify-content-center">
-        <div class="text-center position-absolute col-6">
+        <div class="text-center position-absolute col-sm-6">
             <p class="center_text fw-bold">ОГРОМНЫЙ ВЫБОР ФИЛЬМОВ И СЕРИАЛОВ</p>
             <a href="{{route('login')}}" class="btn btn-dark btn-lg">Войти</a>
             <a href="{{route('registration')}}" class="btn btn-light btn-lg">Регистрация</a>

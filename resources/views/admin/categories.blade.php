@@ -37,7 +37,7 @@
             <table class="table text-white mx-auto table-hover caption-top">
                 <caption class="text-light">
                     <div class="input-group mb-3 w-25">
-                        <input type="text" class="form-control" placeholder="Поиск контента" aria-label="Username"
+                        <input type="text" class="form-control" placeholder="Поиск категории" aria-label="Username"
                             aria-describedby="basic-addon1">
                     </div>
                 </caption>
