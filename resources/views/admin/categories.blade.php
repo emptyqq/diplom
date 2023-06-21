@@ -99,7 +99,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Изменение жанра</h1>
+                    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Изменение категории</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="{{ route('edit_category') }}" method="POST">
@@ -107,6 +107,10 @@
                     <input type="hidden" id="edit-id" name="id">
                     <div class="modal-body text-dark" style="">
                         <input class="form-control" name="name" type="text" id="edit-text">
+                    </div>
+                    <div class="modal-body text-dark" style="">
+                        <input type="text" required name="icon" class="form-control" id="exampleFormControlInput1"
+                            placeholder="иконка">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
