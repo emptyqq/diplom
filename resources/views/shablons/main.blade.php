@@ -245,6 +245,10 @@
                                 </div>
                             </form>
                         </div>
+                        @if (Auth::user()->follow)
+                            <div class="me-3">Подписка до
+                                {{ \Carbon\Carbon::create(Auth::user()->follow_date)->format('d.m.y') }}</div>
+                        @endif
                         <div class="dropdown mx-3">
                             <a href="#"
                                 class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
@@ -297,7 +301,7 @@
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
-    <script src="{{asset('public/js/main.js')}}"></script>
+    <script src="{{ asset('public/js/main.js') }}"></script>
     @yield('scripts')
 </body>
 

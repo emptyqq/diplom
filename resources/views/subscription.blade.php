@@ -62,7 +62,13 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">1300 рублей<small class="text-muted fw-light"></small>
                             </h1>
-                            <button type="button" class="w-100 btn btn-lg btn-danger mt-3">Купить</button>
+                            <form action="{{ route('core.payment.create') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="amount" value="1300">
+                                <input type="hidden" name="months" value="6">
+                                <button type="submit" class="w-100 btn btn-lg btn-danger mt-3">Купить</button>
+
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -88,12 +94,13 @@
                     </button>
                     <div class="collapse" id="collapseExample1">
                         <div class="card card-body nav_menu_color border-0">
-                            Отключить подписку несложно, но без неё вы потеряете все преимущества Премиума: больше не сможете
+                            Отключить подписку несложно, но без неё вы потеряете все преимущества Премиума: больше не
+                            сможете
                             смотреть фильмы и сериалы на ТвоёКино.
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>

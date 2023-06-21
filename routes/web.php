@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\ContentController;
 use App\Http\Controllers\admin\GenreController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserCotnroller;
 use App\Models\Content;
 use App\Models\Content_genre;
@@ -211,7 +212,11 @@ Route::group(['middleware' => 'auth'], function () {
     })->name('search');
 });
 
+Route::match(['GET', 'POST'], '/payments/callback', [PaymentController::class, 'callback'])->name('payment.callback');
 
+Route::post('/payment/create', [PaymentController::class, 'create'])->name('core.payment.create');
+
+Route::get('/payment/follow/{user}', [PaymentController::class, 'follow'])->name('core.payment.follow');
 
 
 Route::group(['prefix' => 'core'], function () {
