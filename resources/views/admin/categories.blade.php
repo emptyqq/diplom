@@ -28,10 +28,6 @@
     <div class="container-fluid">
         <div class="nav_menu_color rounded d-flex p-2 mt-3">
             <h1 class="">Категории</h1>
-            <div class="align-items-center d-flex ms-auto">
-                <a href="" class="btn btn-danger">Добавить
-                    категорию</a>
-            </div>
         </div>
         <div class="nav_menu_color rounded mt-1 p-2">
             <table class="table text-white mx-auto table-hover caption-top">
